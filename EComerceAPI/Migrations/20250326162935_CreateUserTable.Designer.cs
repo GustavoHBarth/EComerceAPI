@@ -4,6 +4,7 @@ using EComerceAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EComerceAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250326162935_CreateUserTable")]
+    partial class CreateUserTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,7 +25,7 @@ namespace EComerceAPI.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("EComerceAPI.Models.Categoria", b =>
+            modelBuilder.Entity("ECommerceAPI.Models.Categoria", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -39,7 +42,7 @@ namespace EComerceAPI.Migrations
                     b.ToTable("Categorias");
                 });
 
-            modelBuilder.Entity("EComerceAPI.Models.Produto", b =>
+            modelBuilder.Entity("ECommerceAPI.Models.Produto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -67,7 +70,7 @@ namespace EComerceAPI.Migrations
                     b.ToTable("Produtos");
                 });
 
-            modelBuilder.Entity("EComerceAPI.Models.User", b =>
+            modelBuilder.Entity("FinanceApp.Models.User", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("varchar(255)");
@@ -267,9 +270,9 @@ namespace EComerceAPI.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("EComerceAPI.Models.Produto", b =>
+            modelBuilder.Entity("ECommerceAPI.Models.Produto", b =>
                 {
-                    b.HasOne("EComerceAPI.Models.Categoria", "Categoria")
+                    b.HasOne("ECommerceAPI.Models.Categoria", "Categoria")
                         .WithMany("Produtos")
                         .HasForeignKey("CategoriaId");
 
@@ -287,7 +290,7 @@ namespace EComerceAPI.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("EComerceAPI.Models.User", null)
+                    b.HasOne("FinanceApp.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -296,7 +299,7 @@ namespace EComerceAPI.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("EComerceAPI.Models.User", null)
+                    b.HasOne("FinanceApp.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -311,7 +314,7 @@ namespace EComerceAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EComerceAPI.Models.User", null)
+                    b.HasOne("FinanceApp.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -320,14 +323,14 @@ namespace EComerceAPI.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("EComerceAPI.Models.User", null)
+                    b.HasOne("FinanceApp.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("EComerceAPI.Models.Categoria", b =>
+            modelBuilder.Entity("ECommerceAPI.Models.Categoria", b =>
                 {
                     b.Navigation("Produtos");
                 });

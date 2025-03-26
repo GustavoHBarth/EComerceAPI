@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace ECommerceAPI.Models
+namespace EComerceAPI.Models
 {
     public class Categoria
     {

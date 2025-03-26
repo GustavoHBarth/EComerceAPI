@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EComerceAPI.Data;
-using ECommerceAPI.Models;
+using EComerceAPI.Models;
 
 namespace ECommerceAPI.Controllers
 {
