@@ -18,7 +18,7 @@ namespace ECommerceAPI.Models
         public int Estoque { get; set; }
 
         [ForeignKey("Categoria")]
-        public int CategoriaId { get; set; }
-        public Categoria Categoria { get; set; }
+        public int? CategoriaId { get; set; } // 🔹 Torne este campo opcional
+        public Categoria? Categoria { get; set; } // 🔹 Torne este campo opcional
     }
 }

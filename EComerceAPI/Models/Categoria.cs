@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace ECommerceAPI.Models
 {
@@ -10,6 +11,8 @@ namespace ECommerceAPI.Models
         [Required]
         public string Nome { get; set; }
 
-        public ICollection<Produto> Produtos { get; set; }
+
+        [JsonIgnore] // Evita erro de referência cíclica ao serializar
+        public ICollection<Produto>? Produtos { get; set; } // 🔹 Permite null
     }
 }
